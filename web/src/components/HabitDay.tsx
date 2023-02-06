@@ -19,14 +19,14 @@ export function HabitDay({ defaultCompleted = 0, amount = 0, date }: HabitDayPro
   const dayAndMonth = dayjs(date).format('DD/MM')
   const dayOfWeek = dayjs(date).format('dddd')
 
-  function handleCompletedChanged(completed: number) {
+  function handleCompletedChaged(completed: number) {
     setCompleted(completed)
   }
 
   return (
     <Popover.Root>
       <Popover.Trigger
-        className={clsx("w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-violet-700 focus:ring-offset-2 focus:ring-offset-background", {
+        className={clsx("w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2 focus:ring-offset-background", {
           'bg-zinc-900 border-zinc-800': comlpetedPercentage === 0,
           'bg-violet-900 border-violet-500': comlpetedPercentage > 0 && comlpetedPercentage < 20,
           'bg-violet-800 border-violet-500': comlpetedPercentage >= 20 && comlpetedPercentage < 40,
@@ -43,7 +43,7 @@ export function HabitDay({ defaultCompleted = 0, amount = 0, date }: HabitDayPro
 
           <ProgressBar progress={comlpetedPercentage} />
 
-          <HabitsList date={date} onCompletedChanged={handleCompletedChanged} />
+          <HabitsList date={date} onCompletedChanged={handleCompletedChaged} />
 
           <Popover.Arrow height={8} width={16} className='fill-zinc-900' />
         </Popover.Content>
